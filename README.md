@@ -18,5 +18,8 @@ Beim ersten Start wird die Datenbank mit einigen Beispielkonten angelegt.
 * Gewinn- und Verlustrechnung
 * Bilanz
 * Umsatzsteuervoranmeldung
+* Modernes, responsives Frontend mit Vue unter `/vue_app`
+
+Das Layout verwendet ein Bootswatch-Theme, wodurch die Anwendung auch auf Handy und Tablet gut aussieht.
 
 Die Umsetzung dient nur als Demonstration und ist nicht für den produktiven Einsatz geeignet.
