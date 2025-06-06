@@ -1,0 +1,28 @@
+number,name,type
+0000,Anlagevermögen,asset
+0200,Grundstücke,asset
+0300,Maschinen,asset
+0400,Fuhrpark,asset
+1000,Vorräte,asset
+1100,Rohstoffe,asset
+1200,Halbfertige Erzeugnisse,asset
+1300,Fertigerzeugnisse,asset
+2000,Forderungen aus Lieferungen und Leistungen,asset
+2400,Schecks,asset
+2500,Vorsteuer,asset
+2700,Kassa,asset
+2800,Bank,asset
+3000,Verbindlichkeiten aus Lieferungen und Leistungen,liability
+3200,Bankkredite,liability
+3500,Umsatzsteuer,liability
+4000,Warenerlöse,income
+4300,Erlöse 20%,income
+4400,Erlöse 10%,income
+5000,Materialaufwand,expense
+5700,Wareneinsatz,expense
+6000,Löhne,expense
+6200,Gehälter,expense
+7000,Abschreibungen,expense
+8000,Zinsen,expense
+9000,Eigenkapital,equity
+9600,Gewinnvortrag,equity

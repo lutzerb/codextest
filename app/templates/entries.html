@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Buchungen</h2>
+<form method="post">
+    Soll: <select name="debit">
+        {% for acc in accounts %}
+            <option value="{{ acc.id }}">{{ acc.number }} {{ acc.name }}</option>
+        {% endfor %}
+    </select>
+    Haben: <select name="credit">
+        {% for acc in accounts %}
+            <option value="{{ acc.id }}">{{ acc.number }} {{ acc.name }}</option>
+        {% endfor %}
+    </select>
+    Betrag: <input type="number" step="0.01" name="amount">
+    Text: <input type="text" name="description">
+    <input type="submit" value="Buchen">
+</form>
+<table border="1">
+<tr><th>Datum</th><th>Text</th><th>Soll</th><th>Haben</th><th>Betrag</th></tr>
+{% for e in entries %}
+<tr><td>{{ e.entry_date }}</td><td>{{ e.description }}</td><td>{{ e.debit.number }}</td><td>{{ e.credit.number }}</td><td>{{ e.amount }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
