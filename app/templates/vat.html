@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Umsatzsteuervoranmeldung</h2>
+<table border="1">
+<tr><td>Umsatzsteuer</td><td>{{ '%.2f'|format(vat_income) }}</td></tr>
+<tr><td>Vorsteuer</td><td>{{ '%.2f'|format(vat_expense) }}</td></tr>
+<tr><td><strong>Zahllast</strong></td><td>{{ '%.2f'|format(vat_due) }}</td></tr>
+</table>
+{% endblock %}

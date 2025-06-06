@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Bilanz</h2>
+<table border="1">
+<tr><th>Aktiva</th><th>Betrag</th><th>Passiva</th><th>Betrag</th></tr>
+{% for left, right in rows %}
+<tr>
+  <td>{{ left.name if left else '' }}</td>
+  <td>{{ '%.2f'|format(left.amount) if left else '' }}</td>
+  <td>{{ right.name if right else '' }}</td>
+  <td>{{ '%.2f'|format(right.amount) if right else '' }}</td>
+</tr>
+{% endfor %}
+<tr><td><strong>Summe Aktiva</strong></td><td>{{ '%.2f'|format(asset_total) }}</td>
+    <td><strong>Summe Passiva</strong></td><td>{{ '%.2f'|format(liability_total) }}</td></tr>
+<tr><td colspan="2"></td><td><strong>Eigenkapital</strong></td><td>{{ '%.2f'|format(equity) }}</td></tr>
+</table>
+{% endblock %}
