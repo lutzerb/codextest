@@ -1,10 +1,14 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, jsonify
 from . import app, db
 from .models import Account, Entry
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/vue_app')
+def vue_app():
+    return render_template('vue_app.html')
 
 @app.route('/accounts')
 def accounts():
@@ -25,6 +29,37 @@ def entries():
         return redirect(url_for('entries'))
     entries = Entry.query.order_by(Entry.entry_date.desc()).all()
     return render_template('entries.html', entries=entries, accounts=accounts)
+
+@app.route('/api/accounts')
+def api_accounts():
+    accounts = Account.query.order_by(Account.number).all()
+    return jsonify([{'id': a.id, 'number': a.number, 'name': a.name, 'type': a.type} for a in accounts])
+
+@app.route('/api/entries', methods=['GET', 'POST'])
+def api_entries():
+    if request.method == 'POST':
+        data = request.get_json()
+        entry = Entry(
+            debit_id=data['debit_id'],
+            credit_id=data['credit_id'],
+            amount=data['amount'],
+            description=data.get('description', '')
+        )
+        db.session.add(entry)
+        db.session.commit()
+        return jsonify({'status': 'success'})
+    entries = Entry.query.order_by(Entry.entry_date.desc()).all()
+    result = []
+    for e in entries:
+        result.append({
+            'id': e.id,
+            'entry_date': e.entry_date.isoformat(),
+            'description': e.description,
+            'debit': {'id': e.debit.id, 'number': e.debit.number, 'name': e.debit.name},
+            'credit': {'id': e.credit.id, 'number': e.credit.number, 'name': e.credit.name},
+            'amount': e.amount
+        })
+    return jsonify(result)
 
 @app.route('/profit_loss')
 def profit_loss():
