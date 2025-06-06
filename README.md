@@ -18,5 +18,6 @@ Beim ersten Start wird die Datenbank mit einigen Beispielkonten angelegt.
 * Gewinn- und Verlustrechnung
 * Bilanz
 * Umsatzsteuervoranmeldung
+* Modernes Frontend mit Vue unter `/vue_app`
 
 Die Umsetzung dient nur als Demonstration und ist nicht für den produktiven Einsatz geeignet.
