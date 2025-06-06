@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<div id="app" class="container mt-4">
-  <h2>Buchungen (Vue)</h2>
+<div id="app" class="mt-4">
+  <h2 class="mb-3">Buchungen (Vue)</h2>
   <form @submit.prevent="addEntry" class="row g-3">
     <div class="col-md-3">
       <label class="form-label">Soll</label>
@@ -29,7 +29,7 @@
       <button type="submit" class="btn btn-primary">Buchen</button>
     </div>
   </form>
-  <table class="table table-bordered mt-4">
+  <table class="table table-striped table-bordered mt-4">
     <thead>
       <tr><th>Datum</th><th>Text</th><th>Soll</th><th>Haben</th><th>Betrag</th></tr>
     </thead>

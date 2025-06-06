@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Konten</h2>
-<table border="1">
-<tr><th>Nummer</th><th>Name</th><th>Typ</th></tr>
-{% for acc in accounts %}
-<tr><td>{{ acc.number }}</td><td>{{ acc.name }}</td><td>{{ acc.type }}</td></tr>
-{% endfor %}
+<h2 class="mb-3">Konten</h2>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr><th>Nummer</th><th>Name</th><th>Typ</th></tr>
+  </thead>
+  <tbody>
+    {% for acc in accounts %}
+    <tr><td>{{ acc.number }}</td><td>{{ acc.name }}</td><td>{{ acc.type }}</td></tr>
+    {% endfor %}
+  </tbody>
 </table>
 {% endblock %}
